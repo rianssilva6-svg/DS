@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Operacao {
+public class atividade {
     public static void main(String[] args)
     {
         
