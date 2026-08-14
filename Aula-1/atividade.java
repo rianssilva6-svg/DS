@@ -7,7 +7,6 @@ public class atividade {
         Scanner sc = new Scanner(System.in);
 
             System.out.println("===== Sistema de calculo =====");
-            System.out.println("===== Sistema de calculo =====");
 
             System.out.print("informe o primeiro número: ");
             double n1 = sc.nextDouble();

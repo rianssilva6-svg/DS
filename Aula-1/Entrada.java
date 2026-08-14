@@ -9,7 +9,6 @@ public class Entrada
         Scanner sc = new Scanner(System.in);
 
             System.out.print("informe o nome: ");
-            System.out.print("informe o nome: ");
             String nome = sc.nextLine();
 
             System.out.print("informe n1: ");
