@@ -8,6 +8,7 @@ public class Variavel {
         char sexo = 'M';
         
         System.out.println("Olá "+nome+"\nSua idade é: "+idade+"\nSua altura é: "+altura+"\nVocê é do sexo: "+sexo+"\nSua nota é de: "+nota);
+        System.out.println("Olá "+nome+"\nSua idade é: "+idade+"\nSua altura é: "+altura+"\nVocê é do sexo: "+sexo+"\nSua nota é de: "+nota);
     }
 
 }
