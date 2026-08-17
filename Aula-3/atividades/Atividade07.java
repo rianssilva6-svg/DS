@@ -1,6 +1,7 @@
 package atividades;
 
 import java.util.Scanner;
+
 public class Atividade07 {
     public static void main(String[] args) {
         System.out.println("===== Loja de CD's =====");
@@ -12,19 +13,19 @@ public class Atividade07 {
 
             if (escolha ==1) {
                 System.out.println("===== Tabela =====");
-                System.out.printf("CD - Vermelho%nPreço: R$24,99");
+                System.out.printf("CD - Vermelho%nPreço: R$40,00");
             }
             else if (escolha ==2) {
                 System.out.println("===== Tabela =====");
-                System.out.printf("CD - Azul%nPreço: R$34,99");
+                System.out.printf("CD - Azul%nPreço: R$20,00");
             }
             else if (escolha ==3) {
                 System.out.println("===== Tabela =====");
-                System.out.printf("CD - Verde%nPreço: R$44,99");
+                System.out.printf("CD - Verde%nPreço: R$10,00");
             }
             else if (escolha ==4) {
                 System.out.println("===== Tabela =====");
-                System.out.printf("CD - Amarelo%nPreço: R$54,99");
+                System.out.printf("CD - Amarelo%nPreço: R$30,00");
             }
 
         sc.close();
