@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Vetor01 {
+public class Atividade01 {
 
     public static void main(String[] args) {
 
@@ -13,7 +13,7 @@ public class Vetor01 {
 
             while (opcao!=6) {
                 System.out.println("===== Sistema de Hotel =====");
-                System.out.println("1 - Registrar número dos quartos\n2 - Registrar a quantidade de camas\n3 - Reservar Quartos");
+                System.out.println("1 - Registrar número dos quartos\n2 - Registrar a quantidade de camas\n 3 - Reservar Quartos");
                 System.out.println("6 - Consultar Reservas por Quarto\n5 - Consultar Reservas por Hóspedes\n6 - Encerrar o Programa");
                 System.out.print("Escolha: ");
                 opcao = sc.nextInt();
@@ -29,19 +29,8 @@ public class Vetor01 {
                     case 2:
                         System.out.println("===== Registro de Cama =====");
                         for (int count = 0; count < camas.length; count++) {
-                            System.out.print("Digite a quantidade de camas do "+(quartos[count]+"º quarto: "));
+                            System.out.print("Digite a quantidade de camasdo "+(quartos[(count+1)]+"º quarto: "));
                             camas[count] = sc.nextInt();
-                        }
-                        break;
-                    case 3:
-                        System.out.println("===== Reservar Quarto =====");
-                        System.out.print("Verifique o número do quarto: ");
-                        int escolha = sc.nextInt();
-
-                        for (int count = 0; count < quartos.length; count++) {
-                            if (escolha == quartos[count]) {
-                                reservas[count];
-                            }
                         }
 
                     default:

@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 
 public class Atividade01 {
@@ -31,14 +29,14 @@ public class Atividade01 {
                             quantidade[count] = sc.nextInt();
                         }
                         break;
-                    
+
                     case 2:
                         System.out.println("===== Lista de Produtos =====");
                         for (int lista = 0; lista < 5; lista++) {
                             System.out.println(produto[lista]+ " - "+quantidade[lista]);
                         }
                         break;
-                    
+
                     case 3:
                         System.out.println("===== Pesquisar Produto =====");
                         System.out.print("Digite o nome do produto que deseja pesquisar: ");
