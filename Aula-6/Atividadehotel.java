@@ -1,15 +1,14 @@
 import java.util.Scanner;
 
-public class Vetor01 {
+public class Atividadehotel {
 
     public static void main(String[] args) {
 
-        int[] quartos = new int[5]; // Guarda os IDs dos quartos do hotel
-        int[] camas = new int[5];   // Guarda as camas de cada quarto
+        int[] quartos = new int[5]; 
+        int[] camas = new int[5];
         
-        // Histórico de reservas (limite de 25)
         String[] nomesHospedes = new String[25];
-        int[] quartosReservados = new int[25]; // NOVO: Vetor para guardar qual quarto o hóspede escolheu
+        int[] quartosReservados = new int[25]; 
         int totalReserva = 0;
 
         Scanner sc = new Scanner(System.in);
@@ -54,12 +53,11 @@ public class Vetor01 {
                         if (escolha == quartos[count]) {
                             if (camas[count] > 0) {
                                 System.out.print("Digite o nome do hóspede: ");
-                                sc.nextLine(); // Limpa o buffer do enter antes de ler o texto
-                                String nome = sc.nextLine(); // nextLine permite nomes com espaço
+                                sc.nextLine(); 
+                                String nome = sc.nextLine();
                                 
-                                // Salva os dados nos vetores de limite 25
                                 nomesHospedes[totalReserva] = nome;
-                                quartosReservados[totalReserva] = escolha; // CORRIGIDO
+                                quartosReservados[totalReserva] = escolha; 
                                 totalReserva++;
                                 camas[count]--;
 
@@ -67,7 +65,7 @@ public class Vetor01 {
                             } else {
                                 System.out.println("Não há camas disponíveis neste quarto!");
                             }
-                            break; // Para a busca do quarto
+                            break; 
                         }
                     }
 
@@ -81,7 +79,6 @@ public class Vetor01 {
                     System.out.print("Digite o número do quarto: ");
                     int busca = sc.nextInt();
 
-                    // Verifica se o quarto existe
                     int i;
                     for (i = 0; i < quartos.length; i++) {
                         if (quartos[i] == busca) {
@@ -94,7 +91,6 @@ public class Vetor01 {
                     } else {
                         int reservasEncontradas = 0;
                         for (int k = 0; k < totalReserva; k++) {
-                            // CORRIGIDO: Agora compara com o histórico de reservas
                             if (quartosReservados[k] == busca) { 
                                 System.out.println("- Hóspede: " + nomesHospedes[k]);
                                 reservasEncontradas++;
@@ -110,13 +106,12 @@ public class Vetor01 {
                 case 5:
                     System.out.println("\n===== Consultar Reservas por Hóspede =====");
                     System.out.print("Digite o nome do hóspede: ");
-                    sc.nextLine(); // Limpa buffer
+                    sc.nextLine(); 
                     String buscaNome = sc.nextLine();
                     
                     int hospedeEncontrado = 0;
                     for (int k = 0; k < totalReserva; k++) {
                         if (nomesHospedes[k].equalsIgnoreCase(buscaNome)) {
-                            // CORRIGIDO: Mostra o número usando o histórico de reservas
                             System.out.println("- Quarto reservado: " + quartosReservados[k]);
                             hospedeEncontrado++;
                         }
