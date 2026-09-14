@@ -89,13 +89,13 @@ public class CadastroContatos {
                         System.out.println("2 - Pessoal");
                         System.out.print("Escolha: ");
                         int escolha = sc.nextInt();
+                        
+                        System.out.print("Informe o numero do indice que deseja alterar: ");
+                        int pos = sc.nextInt();
+                        sc.nextLine();
 
-                        if (escolha == 1) {
-                            System.out.print("Informe o numero do indice que deseja alterar: ");
-                            int pos = sc.nextInt();
-                            sc.nextLine();
-
-                            if(pos>0 && pos<=contatos.size()) {
+                        if(pos>0 && pos<=contatos.size()) {
+                            if (escolha == 1) {
                                 System.out.println("Digite um novo nome: ");
                                 String novoNome = sc.next();
 
@@ -104,7 +104,22 @@ public class CadastroContatos {
 
                                 System.out.println("Digite o novo parentesco: ");
                                 String novoParentesco = sc.next();
-                                contatos.add(new ContatoPessoal(novoNome, novoNumero, novoParentesco));
+                                contatos.set(pos-1, new ContatoPessoal(novoNome, novoNumero, novoParentesco));
+                            }
+                            else if(escolha==2) {
+
+                                System.out.println("Digite um novo nome: ");
+                                String novoNome = sc.next();
+
+                                System.out.println("Digite o novo número: ");
+                                String novoNumero = sc.next();
+
+                                System.out.println("Digite uma nova Empresa: ");
+                                String novaEmpresa = sc.next();
+
+                                System.out.println("Digite um novo cargo: ");
+                                String novoCargo = sc.next();
+                                contatos.set(pos-1, new ContatoProfissional(novoNome, novoNumero, novaEmpresa, novoCargo));
                             }
                         }
                         break;
