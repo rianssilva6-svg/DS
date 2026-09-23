@@ -15,6 +15,7 @@ public class FuncionarioFreeLancer extends Funcionario implements Pagamento{
         double total = valor*horasTrabalhadas;
         System.out.println("Valor a receber: R$"+total);
     }
+
     public void Pagar(double valor, int horasTrabalhadas, double bonus) {
         double totalBonus = (valor*horasTrabalhadas) + bonus;
         System.out.println("Valor a receber com bonus: R$"+totalBonus);
