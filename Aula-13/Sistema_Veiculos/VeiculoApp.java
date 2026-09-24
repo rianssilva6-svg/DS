@@ -22,6 +22,8 @@ public class VeiculoApp {
         // Condições
         boolean cadastroCarro = false;
         boolean cadastroMoto = false;
+        boolean carroEscolhido = false;
+        boolean motoEscolhida = false;
 
         Scanner sc = new Scanner(System.in);
 
@@ -29,8 +31,9 @@ public class VeiculoApp {
                 System.out.println("===== Sistema de Aluguel de Veiculos =====");
                 System.out.println("1 - Cadastrar Veiculos");
                 System.out.println("2 - Mostrar dados dos veiculos");
-                System.out.println("3 - Calcular aluguel com desconto");
-                System.out.println("4 - Encerrar");
+                System.out.println("3 - Escolher Carro ou Moto");
+                System.out.println("4 - Calcular aluguel com desconto");
+                System.out.println("5 - Encerrar");
                 System.out.print("Escolha: ");
                 int escolha = sc.nextInt();
 
@@ -101,48 +104,99 @@ public class VeiculoApp {
 
 
                     case 3:
-                        System.out.println("===== Pagamento com desconto =====");
-                        System.out.println("===== Veiculos =====");
-                        System.out.println("1 - Carro");
-                        System.out.println("2 - Moto");
-                        System.out.print("Qual o seu veiculo: ");
-                        escolha = sc.nextInt();
-                        if (escolha==1) {
-                            System.out.print("Digite a placa: ");
-                            verPlaca = sc.next();
+                        if (!cadastroCarro && !cadastroMoto) {
+                            System.out.println("Cadastre primeiro os veiculos!!");
+                        }
+                        else{
 
-                            for (Carro carro : ListaCarro) {
-                                if (carro.getPlaca().equals(verPlaca.toLowerCase())) {
-                                    System.out.print("Digite a quantidade de dias de uso: ");
-                                    dia = sc.nextInt();
-                                    System.out.print("Digite o valor do desconto: ");
-                                    desconto = sc.nextDouble();
+                            System.out.println("===== Escolher Veiculo =====");
+                            System.out.println("===== Veiculos =====");
+                            System.out.println("1 - Carro");
+                            System.out.println("2 - Moto");
+                            System.out.print("Escolha seu veiculo: ");
+                            escolha = sc.nextInt();
+                            if (escolha==1) {
+                                System.out.print("Digite a placa: ");
+                                verPlaca = sc.next();
 
-                                    carro.aluguel(carro.getValor_diaria(), dia, desconto);
-                                    System.out.println("\n");
+                                for (Carro carro : ListaCarro) {
+                                    if (carro.getPlaca().equals(verPlaca.toLowerCase())) {
+                                        System.out.println("Carro escolhido!! Placa: "+verPlaca);
+                                        carroEscolhido = true;
+                                    }
                                 }
                             }
-                        }
-                        else if (escolha==2) {
-                            System.out.print("Digite a placa: ");
-                            verPlaca = sc.next();
+                            else if (escolha==2) {
+                                System.out.print("Digite a placa: ");
+                                verPlaca = sc.next();
 
-                            for (Moto moto : ListaMoto) {
-                                if (moto.getPlaca().equals(verPlaca.toLowerCase())) {
-                                    System.out.print("Digite a quantidade de dias de uso: ");
-                                    dia = sc.nextInt();
-                                    System.out.print("Digite o valor do desconto: ");
-                                    desconto = sc.nextDouble();
-
-                                    moto.aluguel(moto.getValor_diaria(), dia, desconto);
-                                    System.out.println("\n");
+                                for (Moto moto : ListaMoto) {
+                                    if (moto.getPlaca().equals(verPlaca.toLowerCase())) {
+                                        System.out.println("Moto escolhida!! Placa: "+verPlaca);
+                                        motoEscolhida = true;
+                                    }
                                 }
                             }
                         }
                         break;
 
-
                     case 4:
+                        if (!cadastroCarro && !cadastroMoto) {
+                            System.out.println("Cadastre primeiro os veiculos!!");
+                        }
+                        else{
+                            System.out.println("===== Pagamento com desconto =====");
+                            System.out.println("===== Veiculos =====");
+                            System.out.println("1 - Carro");
+                            System.out.println("2 - Moto");
+                            System.out.print("Qual o seu veiculo: ");
+                            escolha = sc.nextInt();
+                            if (escolha==1) {
+                                if (!carroEscolhido) {
+                                    System.out.println("Este nao é seu carro!!");
+                                }
+                                else{
+                                    System.out.print("Digite a placa: ");
+                                    verPlaca = sc.next();
+
+                                    for (Carro carro : ListaCarro) {
+                                        if (carro.getPlaca().equals(verPlaca.toLowerCase())) {
+                                            System.out.print("Digite a quantidade de dias de uso: ");
+                                            dia = sc.nextInt();
+                                            System.out.print("Digite o valor do desconto: ");
+                                            desconto = sc.nextDouble();
+
+                                            carro.aluguel(carro.getValor_diaria(), dia, desconto);
+                                            System.out.println("\n");
+                                        }
+                                    }
+                                }
+                            }
+                            else if (escolha==2) {
+                                    if (!motoEscolhida) {
+                                        System.out.print("Esse veiculo nao é seu!!");
+                                    }
+                                    else{
+                                        verPlaca = sc.next();
+
+                                        for (Moto moto : ListaMoto) {
+                                            if (moto.getPlaca().equals(verPlaca.toLowerCase())) {
+                                                System.out.print("Digite a quantidade de dias de uso: ");
+                                                dia = sc.nextInt();
+                                                System.out.print("Digite o valor do desconto: ");
+                                                desconto = sc.nextDouble();
+
+                                                moto.aluguel(moto.getValor_diaria(), dia, desconto);
+                                                System.out.println("\n");
+                                            }
+                                        }
+                                    }
+                            }
+                        }
+                        break;
+
+
+                    case 5:
                         System.out.println("Sistema Encerrado....");
                         sc.close();
                         return;
