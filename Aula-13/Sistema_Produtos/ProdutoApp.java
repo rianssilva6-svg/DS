@@ -13,6 +13,7 @@ public class ProdutoApp {
         double preco;
         int quantidade;
         double frete;
+        double desconto;
 
         boolean cadastroProdutoFisico = false;
         boolean cadastroProdutoDigital = false;
@@ -85,37 +86,54 @@ public class ProdutoApp {
                     }
                     break;
                 case 4:
-                    System.out.println("===== Compras =====");
-                    System.out.println("1 - Produto Fisico");
-                    System.out.println("2 - produto Digital");
-                    System.out.print("Escolha: ");
-                    op = sc.nextInt();
-
-                    if (op==1) {
-                        if (!cadastroProdutoFisico) {
-                            System.out.println("Cadastre os produtos primeiro!!");
-                        }
-                        else {
-                            for (ProdutoFisico produtoFisico : listaProdutoFisico) {
-                                produtoFisico.exibirDados();
-
-                                System.out.print("Digite o codigo do produto: ");
-                                String verCodigo = sc.next();
-
-                                if (produtoFisico.getCodigo().equals(verCodigo)) {
-                                    System.out.print("Digite a quantidade: ");
-                                    quantidade = sc.nextInt();
-                                    System.out.print("Digite o valor do frete: ");
-                                    frete = sc.nextDouble();
-
-                                    produtoFisico.vendas(produtoFisico.getPreco(), frete, quantidade);
+                    if (!cadastroProdutoFisico) {
+                        System.out.println("Cadastre os produtos primeiro!!");
+                    }
+                    else {
+                        System.out.println("===== Compras =====");
+                        System.out.println("1 - Produto Fisico");
+                        System.out.println("2 - produto Digital");
+                        System.out.print("Escolha: ");
+                        op = sc.nextInt();
+                        if (op==1) {
+                                for (ProdutoFisico produtoFisico : listaProdutoFisico) {
+                                    produtoFisico.exibirDados();
                                 }
+                                System.out.println("\n");
+                                System.out.println("1 - Sem Desconto");
+                                System.out.println("2 - Com Desconto");
+                                System.out.println("Escolha: ");
+                                op = sc.nextInt();
 
+                                if (op==1) {
+                                    for (ProdutoFisico produtoFisico : listaProdutoFisico) {
+                                        System.out.print("Digite a quantidade: ");
+                                        quantidade = sc.nextInt();
+                                        System.out.print("Digite o valor do frete: ");
+                                        frete = sc.nextDouble();
+
+                                        produtoFisico.vendas(produtoFisico.getPreco(), frete, quantidade);
+                                    }
+                                }
+                                else if (op==2) {
+                                    for (ProdutoFisico produtoFisico : listaProdutoFisico) {
+                                        System.out.print("Digite a quantidade: ");
+                                        quantidade = sc.nextInt();
+                                        System.out.print("Digite o valor do frete: ");
+                                        frete = sc.nextDouble();
+                                        System.out.println("Digite o valor do desconto: ");
+                                        desconto = sc.nextDouble();
+
+                                        produtoFisico.vendas(produtoFisico.getPreco(), desconto, frete, quantidade);
+                                        break;
+                                    }
+                                }
+                                else{
+                                    System.out.println("Escolha invalida!!");
+                                }
                             }
                         }
-                    }
-                    break;
-
+                        break;
                 case 5:
                     System.out.println("Programa Finalizado....");
                     sc.close();
