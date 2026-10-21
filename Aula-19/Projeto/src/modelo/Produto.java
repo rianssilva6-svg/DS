@@ -3,15 +3,19 @@ package modelo;
 public class Produto {
     private int id;
     private String nome;
-    private String categoria;
     private double preco;
+    private String categoria;
     private int quantidade;
+
+    public Produto() {
+        
+    }
     
-    public Produto(int id, String nome, String categoria, double preco, int quantidade) {
+    public Produto(int id, String nome, double preco, String categoria ,int quantidade) {
         this.id = id;
         this.nome = nome;
-        this.categoria = categoria;
         this.preco = preco;
+        this.categoria = categoria;
         this.quantidade = quantidade;
     }
 

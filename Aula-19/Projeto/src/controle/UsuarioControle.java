@@ -2,7 +2,7 @@ package controle;
 
 import dao.UsuarioDao;
 
-public class LoginControle {
+public class UsuarioControle {
     private UsuarioDao usuariodao = new UsuarioDao();
 
     public boolean logar(String login, String senha) {
